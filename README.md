@@ -88,7 +88,146 @@ ___
 
 ![Screenshot (64)](https://github.com/user-attachments/assets/9158b04f-9da4-4d92-8e1f-f7870aae7ffb)
 
+___ 
+
+### (I/O Structure  
+
+![Screenshot (69)](https://github.com/user-attachments/assets/ae551e6f-e070-43a1-840b-aacde26c2de6)
+
+- An I/O device is connected to the machine by I/O port. And the devices have their device controller.
+- Device controller is nothing but intermediate hardware between the machine, I/O device and OS. The OS sends instructions to the CPU to manipulate I/O devices.Then CPU sends signals to these devices via device controller
+- But how does OS know what device is connected and what instructions should it send to get device working?
+- When a manufacturer makes a device, they will distribute its driver program along with it. This is because the OS will never have idea about the device. The only way to interact with the device is by talking to its driver program.
+- the driver program sends instructions and receives data from the device and pass it to OS for use. The OS and Driver can talk to each other simply because they are both loaded on the memory.
+- Above all, is why I/O device (those shinny RGB keyboards) stops working as soon as driver program crashes
+
+![Screenshot (67)](https://github.com/user-attachments/assets/062beda1-c676-4e06-a3a9-d3e5dffe6c02) 
+
+#### Working of an I/O operation:
+- Loading Registers: The device driver tells the device controller what to do by loading values into its registers. 
+- Controller Action: The device controller reads these values from its registers and knows what operation to perform. 
+- Loading Registers: The device driver tells the device controller what to do by loading values into its registers. 
+- Interrupt: When done, the device controller sends an interrupt to the CPU to let it know that the operation is complete. 
+- CPU Response: The CPU stops its current task, handles the interrupt, and processes the data transferred by the device controller. 
+___ 
+
+### Computer System Architecture 
+
+- Computer systems can be categorized based on the number of general-purpose processors they utilize.
+- The main types include single processor systems, which rely on one CPU to execute tasks, and multiprocessor systems, which incorporate two or more CPUs to enhance performance. Additionally, clustered systems link multiple systems to work collaboratively on tasks, thus improving efficiency and processing power.
+- Each architecture has its own advantages and specific use cases, highlighting the diverse capabilities of computer systems.
+
+#### Single Processor Systems
+
+![Screenshot (76)](https://github.com/user-attachments/assets/11569c1c-d0e8-4e14-8538-355bdbf42eb2) 
+
+- In a single-processor system, there is only one central processing unit (CPU) that handles all tasks and processes.
+- The CPU switches between processes through a method called time-sharing or multitasking, which creates the illusion that multiple programs are running simultaneously. However, at any given moment, only one process is actively executing.
+- The operating system is responsible for managing this process switching, ensuring that each task gets fair CPU time, handling priorities, and managing system resources efficiently. This type of system is simpler and more common in personal computers, but it can become less efficient under heavy workloads compared to multiprocessor systems.
+
+![Screenshot (77)](https://github.com/user-attachments/assets/7dbaff8d-0c64-445c-b5ec-d00afe162b66)  
+
+#### Multiprocessor systems 
+
+- Multiprocessor systems (also known as parallel processing systems) involve multiple CPUs working together within a single computer. These CPUs share the same memory and peripherals, which allows them to handle multiple processes simultaneously, significantly increasing system performance and reliability.
+
+#### Key features of multiprocessor systems:
+- Increased Throughput: Multiple processors allow for concurrent execution of processes, improving the system’s ability to complete tasks faster.
+- Fault Tolerance: If one processor fails, the system can continue working using the remaining CPUs, improving reliability.
+- Shared Resources: CPUs share the main memory and I/O devices, coordinated by the operating system to prevent conflicts and ensure efficiency.
+- Symmetric and Asymmetric Models:
+  - Symmetric Multiprocessing (SMP): All processors are equal, sharing tasks equally.
+  - Asymmetric Multiprocessing (AMP): One CPU is the master, assigning tasks to other subordinate CPUs.
+
+   ![Screenshot (78)](https://github.com/user-attachments/assets/84ac996d-b0f4-4728-8f5e-5a09891659b4)
+
+#### Clustered Systems
+
+![Screenshot (79)](https://github.com/user-attachments/assets/7914f529-37af-4ba1-b96e-1fdc7a604b93) 
+
+##### Clustered systems involve multiple independent computers (nodes) working together as a single unit. They improve performance, availability, and scalability by distributing tasks across nodes. If one node fails, others can take over, ensuring reliability (high availability). Clustered systems balance the load among nodes to handle heavy workloads efficiently. They are scalable, allowing more nodes to be added as needed. Types include high-performance clusters for intensive computations, load-balancing clusters for workload distribution, and high-availability clusters for redundancy. These systems are used in areas like cloud computing, databases, and scientific research. 
+
+##### Clustered systems can be structured in two main ways:
+- Asymmetric clustered systems, one machine operates in a hot-standby mode, monitoring the others that are actively running applications. If any of these active systems fail, the standby machine takes over, ensuring continuity.
+- Symmetric clustered systems involve multiple hosts that not only run applications but also monitor each other, allowing for better resource sharing and efficiency. Symmetric configurations are generally preferred due to their collaborative nature, which optimizes resource usage and enhances system reliability.
+
 ___
+
+### Operating System Structure 
+
+#### Multiprogramming & Multitasking 
+
+1. Multiprogramming:
+![Screenshot (81)](https://github.com/user-attachments/assets/14fc6c41-c0ed-48a5-b88a-160a7164647c)
+- Objective: To maximize CPU utilization by running multiple programs simultaneously.
+- How it works: The operating system loads multiple programs into memory and switches between them. While one program is waiting for I/O (like reading from a disk), the CPU is assigned to another program.
+- Benefit: It increases system efficiency by keeping the CPU busy at all times, minimizing idle time.
+- Example: In a multiprogramming system, one process might be writing to a disk while another is performing calculations.
+
+2. Multitasking:
+ ![Screenshot (84)](https://github.com/user-attachments/assets/ee4c0ed6-d236-47eb-b424-f6fffa196c2f)
+- Objective: To allow multiple users to interact with a computer simultaneously.
+- How it works: The CPU allocates time slices to each user or task, switching between them rapidly, so each user feels as though they have the computer to themselves.
+- Benefit: Provides an interactive experience for users while still efficiently managing resources across multiple programs.
+- A time-sharing system allows multiple users to edit files or run programs simultaneously, each experiencing a fast response time.
+![Screenshot (85)](https://github.com/user-attachments/assets/5709ccc6-10e3-4d7b-838b-05f822a7f7d6)
+
+___
+
+### Operating System Services
+
+- An OS provides an environment for the execution of programs.
+- It provides certain services to programs and to users of those programs. image
+
+1. User Interface: Facilitates interaction between the user and the operating system, typically through graphical user interfaces (GUIs) or command-line interfaces (CLIs). 
+
+2. Program Execution: Manages the execution of programs by loading them into memory, running, and terminating them. 
+
+3. I/O Operations: Handles input and output operations, enabling interaction between the system and external devices like keyboards, printers, and storage drives. 
+
+4. File System Manipulation: Manages file operations such as creating, deleting, reading, and writing files on storage devices. 
+
+5. Communications: Facilitates data exchange between processes running on the same or different systems, using shared memory or message-passing mechanisms. 
+
+6. Error Detection: Continuously monitors the system for potential errors, including hardware failures and software issues, and responds appropriately. 
+
+7. Resource Allocation: Allocates and manages resources like CPU time, memory, and I/O devices among multiple processes. 
+
+8. Accounting: Tracks system usage by users and applications, helping in auditing and optimizing resource usage. 
+
+9. Protection and Security: Ensures controlled access to system resources, protecting data and system integrity from unauthorized access or breaches.
+
+
+___
+
+### User Operating System Interface 
+
+##### the User Operating System Interface allows users to interact with the operating system to manage hardware and software resources. There are two main types of interfaces ,The CLI allows users to input commands directly, requiring them to remember specific syntax for tasks, while the GUI provides a more visual and intuitive way to interact with the system through graphical elements. Each approach has its own advantages and use cases, influencing user experience and efficiency. 
+
+##### The GUI is characterized by its user-friendly design, allowing interaction through visual elements like desktops and menus, which enhances usability for everyday tasks. In contrast, the CLI requires users to input text-based commands, necessitating knowledge of specific command syntax. Additionally, the command interpreter's implementation varies, as some operating systems integrate it into the kernel, while others treat it as a standalone program, affecting performance and functionality. 
+
+___ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
 
 
