@@ -208,6 +208,82 @@ ___
 
 ___ 
 
+### System Calls
+
+- System calls are essential interfaces that connect user applications to the services provided by the operating system.
+- They enable programs to request services such as file operations, process management, and communication.
+- Programs operate in two distinct modes: user mode and kernel mode.
+- User mode : restricts access to critical system resources, ensuring stability and security, Do not have access to resources like memory or hardwares, When a program crashes, the entire system will not break down.
+- kernel mode allows programs direct access to hardware and memory, granting them elevated privileges. However, executing in kernel mode poses risks, as a crash can lead to system-wide failures, highlighting the importance of carefully managing system calls.
+- Switching from kernel to user and vice versa is known as mode shifting not context switch. Context switch is the one which happens between 2 processes.
+- Because user mode is safer, most programs run in user mode. But some programs might need access to resources, so they will make a call to the OS to request for these. This call is system call.
+- When the OS receives the system call, it will change the mode of the program to kernel mode. This is called mode shifting.
+
+![Screenshot (96)](https://github.com/user-attachments/assets/d15e07a0-60b7-4a5c-85f2-5756792d88a3) 
+
+___
+
+#### Example of a System Call sequence for writing a simple program to read data from one file and copy them to another file. 
+
+![Screenshot (97)](https://github.com/user-attachments/assets/1f7c5a62-e4e3-4205-a9f2-df37b2cc955d) 
+
+___
+
+### Types of System Calls 
+
+![Screenshot (98)](https://github.com/user-attachments/assets/c76f0192-5c49-4c97-a277-24e0cae12edf) 
+
+- Process Control: These system calls are used to create, modify, and manage processes and threads, including functions such as fork(), exec(), wait(), and exit().
+![Screenshot (99)](https://github.com/user-attachments/assets/e9a78dc4-702a-4b4c-8df1-4b39c50b0f60)
+
+- File Management: These system calls are used to create, modify, and manage files and directories, including functions such as open(), read(), write(), and close().
+![Screenshot (100)](https://github.com/user-attachments/assets/8595d7dd-16cb-4c41-9929-db5686c36ef3)
+
+- Device Management: These system calls are used to access and manage hardware devices such as printers, disks, and network interfaces, including functions such as ioctl() and read().
+![Screenshot (101)](https://github.com/user-attachments/assets/4e2daef8-4963-4a13-91a2-de97704a6ebc)
+
+- Information Maintenance: These system calls are used to retrieve and update information about the system and its resources, including functions such as getpid(), getuid(), and getgid().
+![Screenshot (102)](https://github.com/user-attachments/assets/1e5ff50a-51e0-4cc6-a53b-f73c0d225d91)
+
+- Communication: These system calls are used to facilitate interprocess communication and synchronization, including functions such as pipe(), socket(), and sendmsg().
+![Screenshot (103)](https://github.com/user-attachments/assets/4bb3a8fe-b324-40de-b9e0-5abd8d937343)
+
+___ 
+
+### System Programs 
+
+- System programs serve as a critical layer in the computing hierarchy, positioned directly above the operating system and below application programs.
+- They facilitate interaction between the user and the hardware, providing essential functionalities like file management, process control, and hardware access. Examples include command interpreters and system utilities, which enhance system efficiency and usability. By comprehending the structure and purpose of system programs, one can better appreciate their significance in modern computing environments.
+
+![Screenshot (104)](https://github.com/user-attachments/assets/c0ef9d3e-7e82-42e7-946b-8ea8585c3eb4) 
+
+![Screenshot (105)](https://github.com/user-attachments/assets/82e4ce64-77ed-41f0-abe7-6d635b17aee0) 
+
+![Screenshot (106)](https://github.com/user-attachments/assets/ee75037c-4603-42d8-87f9-eda9efce8469) 
+
+![Screenshot (107)](https://github.com/user-attachments/assets/93ba7994-f530-468e-ae54-9b50801aa51d) 
+
+![Screenshot (108)](https://github.com/user-attachments/assets/a08e592d-c0f0-41bc-b946-bbf39bf40d63) 
+
+![Screenshot (109)](https://github.com/user-attachments/assets/9105d690-1ca6-402c-afe7-7b059d7dfb4c) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
